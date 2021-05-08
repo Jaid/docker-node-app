@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -e
+set -o errexit
+
+docker build -t jaidchen/node-app .
+docker push jaidchen/node-app
