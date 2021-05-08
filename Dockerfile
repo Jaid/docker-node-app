@@ -5,4 +5,3 @@ RUN mkdir -p /opt/app
 WORKDIR /opt/app
 RUN adduser -S app
 RUN chown -R app /opt/app
-USER app
