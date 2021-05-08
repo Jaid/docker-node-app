@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM node:16-alpine
+FROM node:16
 RUN npm install --global npm
 RUN mkdir -p /opt/app
 WORKDIR /opt/app
