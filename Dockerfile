@@ -18,6 +18,8 @@ RUN userdel -r node
 RUN addgroup --gid $groupId $groupName
 RUN adduser --disabled-password --gecos '' --uid $userId --gid $groupId --home /home/$userName --shell /bin/bash $userName
 
+USER $userName
+
 # Update npm to suppress warnings
 RUN npm install --global npm
 
