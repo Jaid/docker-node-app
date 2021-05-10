@@ -29,4 +29,9 @@ RUN npm install --global find-by-extension-cli
 # WORKDIR automatically creates missing folders
 WORKDIR /home/$userName/app
 
-ENV userName=$userName groupName=$groupName userId=$userId groupId=$groupId NODE_ENV=production
+ENV NODE_ENV=production
+# Pass ARGs to child image
+ENV userName=$userName groupName=$groupName userId=$userId groupId=$groupId
+
+# Reset user
+USER root
