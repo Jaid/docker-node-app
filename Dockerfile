@@ -1,7 +1,27 @@
 # syntax=docker/dockerfile:1
+
+ARG nodeVersion=16
+
 FROM node:16
+
+ARG userName=app
+ARG groupName=$userName
+ARG userId=1000
+ARG groupId=1000
+
+# https://github.com/nodejs/docker-node/blob/main/docs/BestPractices.md#environment-variables
+ENV NPM_CONFIG_PREFIX=/home/$userName/.npm-global
+ENV PATH=$PATH:/home/$userName/.npm-global/bin
+
+# Update npm to suppress warnings
 RUN npm install --global npm
+
+# https://github.com/nodejs/docker-node/blob/main/docs/BestPractices.md#non-root-user
+RUN userdel -r node
+RUN addgroup --gid $groupId $groupName
+RUN adduser --disabled-password --gecos '' --uid $userId --gid $groupId --home /home/$userName --shell /bin/bash $userName
+
 # WORKDIR automatically creates missing folders
-WORKDIR /opt/app
-RUN useradd --create-home --shell /bin/bash app
-RUN chown -R app /opt/app
+WORKDIR /home/$userName/app
+
+ENV userName=$userName groupName=$groupName userId=$userId groupId=$groupId
