@@ -2,7 +2,7 @@
 
 ARG nodeVersion=16
 
-FROM node:16
+FROM node:$nodeVersion
 
 ARG userName=app
 ARG groupName=$userName
