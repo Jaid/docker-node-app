@@ -13,13 +13,13 @@ ARG groupId=1000
 ENV NPM_CONFIG_PREFIX=/home/$userName/.npm-global
 ENV PATH=$PATH:/home/$userName/.npm-global/bin
 
-# Update npm to suppress warnings
-RUN npm install --global npm
-
 # https://github.com/nodejs/docker-node/blob/main/docs/BestPractices.md#non-root-user
 RUN userdel -r node
 RUN addgroup --gid $groupId $groupName
 RUN adduser --disabled-password --gecos '' --uid $userId --gid $groupId --home /home/$userName --shell /bin/bash $userName
+
+# Update npm to suppress warnings
+RUN npm install --global npm
 
 # WORKDIR automatically creates missing folders
 WORKDIR /home/$userName/app
