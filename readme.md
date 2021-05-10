@@ -13,9 +13,9 @@ FROM jaidchen/node-app
 # syntax=docker/dockerfile:1
 FROM jaidchen/node-app
 COPY . .
-RUN chown -R $userName .
+RUN chown --recursive $userName .
 USER $userName
 RUN NODE_ENV=development npm install
-RUN npx webpack
-CMD [ "node", "dist/package/production/index.js" ]
+RUN node_modules/.bin/webpack
+CMD ["/bin/bash", "-c", "node $(find-by-extension-cli js --fullPath --cwd dist/package/production)"]
 ```
