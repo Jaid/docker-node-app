@@ -15,7 +15,7 @@ FROM jaidchen/node-app
 COPY . .
 RUN chown -R $userName .
 USER $userName
-RUN npm install
+RUN NODE_ENV=development npm install
 RUN npx webpack
 CMD [ "node", "dist/package/production/index.js" ]
 ```
