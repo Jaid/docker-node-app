@@ -21,6 +21,9 @@ RUN adduser --disabled-password --gecos '' --uid $userId --gid $groupId --home /
 # Update npm to suppress warnings
 RUN npm install --global npm
 
+# npm globals
+RUN npm install --global find-by-extension-cli
+
 # WORKDIR automatically creates missing folders
 WORKDIR /home/$userName/app
 
