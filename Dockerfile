@@ -27,4 +27,4 @@ RUN npm install --global find-by-extension-cli
 # WORKDIR automatically creates missing folders
 WORKDIR /home/$userName/app
 
-ENV userName=$userName groupName=$groupName userId=$userId groupId=$groupId
+ENV userName=$userName groupName=$groupName userId=$userId groupId=$groupId NODE_ENV=production
