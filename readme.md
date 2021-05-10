@@ -15,6 +15,7 @@ FROM jaidchen/node-app
 COPY . .
 RUN chown --recursive $userName .
 USER $userName
+RUN mkdir --parents /home/$userName
 RUN NODE_ENV=development npm install
 RUN node_modules/.bin/webpack
 CMD ["/bin/bash", "-c", "node $(find-by-extension-cli js --fullPath --cwd dist/package/production)"]
