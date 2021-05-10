@@ -1,6 +1,6 @@
 # docker-node-app
 
-On Docker Hub: https://hub.docker.com/repository/docker/jaidchen/node-app
+[![dockeri.co](https://dockeri.co/image/jaidchen/node-app)](https://hub.docker.com/r/jaidchen/node-app)
 
 ## Usage
 
