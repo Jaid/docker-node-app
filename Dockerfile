@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-ARG nodeVersion=16
+ARG nodeVersion=18.2
 
 FROM node:$nodeVersion
 
@@ -30,6 +30,7 @@ RUN npm install --global find-by-extension-cli package-field-cli
 WORKDIR /home/$userName/app
 
 ENV NODE_ENV=production
+
 # Pass ARGs to child image
 ENV userName=$userName groupName=$groupName userId=$userId groupId=$groupId
 
