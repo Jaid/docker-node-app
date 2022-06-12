@@ -2,5 +2,7 @@
 set -e
 set -o errexit
 
-docker build -t jaidchen/node-app .
+here="$(cd -- "$(dirname -- "${BASH_SOURCE[0]:-}")" &>/dev/null && pwd 2>/dev/null)"
+
+docker build -t jaidchen/node-app "$here/.."
 docker push jaidchen/node-app
