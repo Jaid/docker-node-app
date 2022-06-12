@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-ARG nodeVersion=18.2
+ARG nodeVersion=18.3.0
 
 FROM node:$nodeVersion
 
