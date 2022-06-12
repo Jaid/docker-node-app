@@ -24,7 +24,7 @@ USER $userName
 RUN npm install --location=global npm
 
 # npm globals
-RUN npm install --location=global find-by-extension-cli package-field-cli
+RUN npm install --location=global package-field-cli
 
 # WORKDIR automatically creates missing folders
 WORKDIR /home/$userName/app
