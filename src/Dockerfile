@@ -1,8 +1,9 @@
 # syntax=docker/dockerfile:1
 
 ARG nodeVersion=18.9.0
+ARG baseFlavor=bullseye-slim
 
-FROM node:$nodeVersion
+FROM node:$nodeVersion-$baseFlavor
 
 ARG userName=app
 ARG groupName=$userName
