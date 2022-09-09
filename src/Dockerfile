@@ -25,9 +25,6 @@ USER $userName
 # Update npm to suppress warnings
 RUN npm install --global npm
 
-# npm globals
-RUN npm install --global package-field-cli
-
 # WORKDIR automatically creates missing folders
 WORKDIR $userHome
 
